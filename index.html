@@ -1,1 +1,136 @@
 
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PuzzleClub — Bilingual Crossword</title>
+  <meta name="description" content="PuzzleClub Bilingual Crossword: crossword puzzles with clues in English or Arabic, for Android. Made by Mubarak Daud.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --night: #1f1140;      /* the app's deep violet */
+      --plum: #34196b;
+      --lavender: #caaafd;   /* an untouched square */
+      --green: #82dd8e;      /* a solved square */
+      --green-deep: #52af58;
+      --violet: #8a2be2;     /* the highlighted word */
+      --paper: #fbf8ff;
+      --ink: #2a1a4d;
+      --ink-soft: #5b4b7d;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body {
+      font-family: 'Baloo Bhaijaan 2', 'Segoe UI', Roboto, Arial, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+    a { color: inherit; }
+    a:focus-visible, .play:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; border-radius: 8px; }
+
+    /* ── Hero: the name, one line about the game, and a real mini crossword ── */
+    .hero {
+      background: radial-gradient(circle at 80% 45%, var(--plum) 0, rgba(52, 25, 107, 0) 420px), var(--night);
+      color: #f3ecff;
+    }
+    .hero-inner {
+      max-width: 1040px; margin: 0 auto; padding: 72px 28px 80px;
+      display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 56px; align-items: center;
+    }
+    h1 { font-weight: 800; font-size: clamp(3rem, 7vw, 5rem); line-height: 0.95; letter-spacing: -1px; margin: 0; }
+    .lede { font-size: clamp(1.25rem, 2.4vw, 1.6rem); font-weight: 600; color: var(--lavender); margin: 18px 0 32px; max-width: 26ch; line-height: 1.3; }
+    .play {
+      display: inline-block; text-decoration: none;
+      background: var(--green); color: #14532d;
+      font-weight: 800; font-size: 1.15rem; padding: 14px 26px; border-radius: 14px;
+      box-shadow: 0 3px 0 var(--green-deep);
+    }
+    .play:hover { background: #95e6a0; }
+
+    .grid { display: grid; grid-template-columns: repeat(7, 48px); grid-template-rows: repeat(7, 48px); gap: 6px; }
+    .c {
+      position: relative; border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1.5rem; line-height: 1; box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+    }
+    .c.blank { background: none; box-shadow: none; }
+    .c.open { background: var(--lavender); color: #3a2a5e; }
+    .c.done { background: var(--green); color: #14532d; }
+    .c.path { background: var(--violet); color: #fff; }
+    .c.path.done { background: var(--green-deep); color: #14532d; }
+    .c.cursor { background: #5a1aa6; box-shadow: inset 0 0 0 3px #f3ecff, 0 2px 0 rgba(0, 0, 0, 0.25); }
+    .c .n { position: absolute; top: 3px; left: 5px; font-size: 0.7rem; font-weight: 700; opacity: 0.85; }
+
+    /* ── How it plays ── */
+    .about { max-width: 1040px; margin: 0 auto; padding: 64px 28px 24px; }
+    h2 { font-size: 1.9rem; font-weight: 800; margin: 0 0 20px; }
+    .points { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; max-width: 62ch; }
+    .points li { display: grid; grid-template-columns: 22px 1fr; gap: 14px; font-size: 1.15rem; color: var(--ink); }
+    .points li::before { content: ''; width: 22px; height: 22px; border-radius: 6px; background: var(--lavender); margin-top: 4px; }
+    .points li:nth-child(2)::before { background: var(--green); }
+    .points li:nth-child(3)::before { background: var(--violet); }
+
+    /* ── Who makes it ── */
+    footer { max-width: 1040px; margin: 0 auto; padding: 40px 28px 64px; color: var(--ink-soft); font-size: 1.05rem; }
+    footer p { margin: 6px 0; }
+    footer a { color: var(--violet); font-weight: 600; }
+
+    @media (max-width: 760px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; padding: 48px 22px 56px; }
+      .grid { grid-template-columns: repeat(7, 40px); grid-template-rows: repeat(7, 40px); gap: 5px; justify-self: start; }
+      .c { font-size: 1.25rem; border-radius: 8px; }
+      .about, footer { padding-left: 22px; padding-right: 22px; }
+    }
+    @media (max-width: 360px) {
+      .grid { grid-template-columns: repeat(7, 34px); grid-template-rows: repeat(7, 34px); gap: 4px; }
+      .c { font-size: 1.05rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div>
+        <h1>PuzzleClub</h1>
+        <p class="lede">Crossword puzzles with clues in English or Arabic.</p>
+        <a class="play" href="https://play.google.com/store/apps/details?id=com.mubarak.englisharabicpuzzles">Get it on Google Play</a>
+      </div>
+      <!-- A real mini crossword in the game's colours: ARABIC, ENGLISH and LEARN
+           across; RING, IRIS and LAKE down. Decorative, so hidden from screen readers. -->
+      <div class="grid" id="grid" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <main class="about">
+    <h2>How it plays</h2>
+    <ul class="points">
+      <li>Every answer is an English word. Read each clue in English, or switch it to Arabic with one tap.</li>
+      <li>Check your letters as you go: the correct ones turn green.</li>
+      <li>Stuck on a word? Watch a short ad to reveal a letter. New puzzles are added regularly.</li>
+    </ul>
+  </main>
+
+  <footer>
+    <p>PuzzleClub Bilingual Crossword is made by Mubarak Daud, an independent Android developer.</p>
+    <p>Contact: <a href="mailto:beribor483@gmail.com">beribor483@gmail.com</a></p>
+    <p><a href="https://sites.google.com/view/puzzleclub-privacy-policy">Privacy policy</a></p>
+  </footer>
+
+  <script>
+    const rows = ['.ARABIC', '..I..R.', '..N..I.', 'ENGLISH', '...A...', '...K...', '..LEARN'];
+    const nums = { '0,1': 1, '0,2': 2, '0,5': 3, '3,0': 4, '3,3': 5, '6,2': 6 };
+    const done = new Set(['0,1','0,2','0,3','0,4','0,5','0,6','3,0','3,1','3,2','3,3','3,4','3,5','3,6','6,2','6,3','6,4','6,5','6,6']);
+    const path = new Set(['3,3', '4,3', '5,3', '6,3']);
+    const shown = new Set(['1,2', '4,3']);
+    const cursor = '5,3';
+    const g = document.getElementById('grid');
+    rows.forEach((row, r) => [...row].forEach((ch, c) => {
+      const k = r + ',' + c, d = document.createElement('div');
+      if (ch === '.') { d.className = 'c blank'; g.appendChild(d); return; }
+      d.className = 'c ' + (path.has(k) ? 'path' : 'open') + (done.has(k) ? ' done' : '') + (k === cursor ? ' cursor' : '');
+      if (done.has(k) || shown.has(k)) d.append(ch);
+      if (nums[k]) { const n = document.createElement('span'); n.className = 'n'; n.textContent = nums[k]; d.appendChild(n); }
