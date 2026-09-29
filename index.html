@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -134,3 +133,8 @@
       d.className = 'c ' + (path.has(k) ? 'path' : 'open') + (done.has(k) ? ' done' : '') + (k === cursor ? ' cursor' : '');
       if (done.has(k) || shown.has(k)) d.append(ch);
       if (nums[k]) { const n = document.createElement('span'); n.className = 'n'; n.textContent = nums[k]; d.appendChild(n); }
+      g.appendChild(d);
+    }));
+  </script>
+</body>
+</html>
