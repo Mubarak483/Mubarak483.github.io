@@ -63,11 +63,10 @@
       box-shadow: 0 3px 0 var(--green-deep);
     }
     .play:hover { background: #95e6a0; }
-    /* The two stores. Google Play shows its official badge (google-play-badge.png,
-       next to this page). AppGallery shows a button in Huawei red, the same
-       height as the badge; if appgallery-badge.png is ever added next to this
-       page, its official badge shows instead. A badge picture that's missing
-       falls back to its button, so the page never shows a broken image. */
+    /* The two stores, each as a badge picture next to this page:
+       google-play-badge.png and appgallery-badge.png, matching in style. If a
+       badge picture is missing, its link shows as a plain button instead (the
+       AppGallery one in Huawei red), so the page never shows a broken image. */
     .stores { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
     .store { display: inline-block; line-height: 0; border-radius: 10px; }
     .store img { display: block; height: 58px; width: auto; }
@@ -127,7 +126,7 @@
             <img src="google-play-badge.png" alt="Get it on Google Play" onerror="this.parentNode.classList.add('no-badge')"><span class="play">Get it on Google Play</span>
           </a>
           <a class="store" href="https://appgallery.huawei.com/app/C118849817">
-            <img src="appgallery-badge.png" alt="Explore it on AppGallery" onerror="this.parentNode.classList.add('no-badge')"><span class="play gallery">Get it on AppGallery</span>
+            <img src="appgallery-badge.png" alt="Get it on AppGallery" onerror="this.parentNode.classList.add('no-badge')"><span class="play gallery">Get it on AppGallery</span>
           </a>
         </div>
       </div>
