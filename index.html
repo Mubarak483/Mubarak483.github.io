@@ -63,6 +63,11 @@
       box-shadow: 0 3px 0 var(--green-deep);
     }
     .play:hover { background: #95e6a0; }
+    /* The second store, for Huawei phones (no Google Play): same size, outlined,
+       so Google Play stays the main button. */
+    .stores { display: flex; flex-wrap: wrap; gap: 12px; }
+    .play.gallery { background: transparent; color: #f3ecff; box-shadow: inset 0 0 0 2px rgba(202, 170, 253, 0.6); }
+    .play.gallery:hover { background: rgba(202, 170, 253, 0.12); }
 
     .grid { display: grid; grid-template-columns: repeat(7, 48px); grid-template-rows: repeat(7, 48px); gap: 6px; }
     .c {
@@ -109,7 +114,10 @@
       <div>
         <h1>PuzzleClub</h1>
         <p class="lede">Crossword puzzles with clues in English or Arabic.</p>
-        <a class="play" href="https://play.google.com/store/apps/details?id=com.mubarak.englisharabicpuzzles">Get it on Google Play</a>
+        <div class="stores">
+          <a class="play" href="https://play.google.com/store/apps/details?id=com.mubarak.englisharabicpuzzles">Get it on Google Play</a>
+          <a class="play gallery" href="https://appgallery.huawei.com/app/C118849817">Get it on AppGallery</a>
+        </div>
       </div>
       <!-- A real mini crossword in the game's colours: ARABIC, ENGLISH and LEARN
            across; RING, IRIS and LAKE down. Decorative, so hidden from screen readers. -->
