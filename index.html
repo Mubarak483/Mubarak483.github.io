@@ -63,11 +63,19 @@
       box-shadow: 0 3px 0 var(--green-deep);
     }
     .play:hover { background: #95e6a0; }
-    /* The second store, for Huawei phones (no Google Play): same size, outlined,
-       so Google Play stays the main button. */
-    .stores { display: flex; flex-wrap: wrap; gap: 12px; }
-    .play.gallery { background: transparent; color: #f3ecff; box-shadow: inset 0 0 0 2px rgba(202, 170, 253, 0.6); }
-    .play.gallery:hover { background: rgba(202, 170, 253, 0.12); }
+    /* The two stores. Google Play shows its official badge (google-play-badge.png,
+       next to this page). AppGallery shows a button in Huawei red, the same
+       height as the badge; if appgallery-badge.png is ever added next to this
+       page, its official badge shows instead. A badge picture that's missing
+       falls back to its button, so the page never shows a broken image. */
+    .stores { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+    .store { display: inline-block; line-height: 0; border-radius: 10px; }
+    .store img { display: block; height: 58px; width: auto; }
+    .store .play { display: none; box-sizing: border-box; height: 58px; padding: 0 24px; border-radius: 10px; align-items: center; line-height: 1; }
+    .store.no-badge img { display: none; }
+    .store.no-badge .play { display: inline-flex; }
+    .play.gallery { background: #cf0a2c; color: #fff; box-shadow: 0 3px 0 #9e0822; }
+    .play.gallery:hover { background: #b8092a; }
 
     .grid { display: grid; grid-template-columns: repeat(7, 48px); grid-template-rows: repeat(7, 48px); gap: 6px; }
     .c {
@@ -115,8 +123,12 @@
         <h1>PuzzleClub</h1>
         <p class="lede">Crossword puzzles with clues in English or Arabic.</p>
         <div class="stores">
-          <a class="play" href="https://play.google.com/store/apps/details?id=com.mubarak.englisharabicpuzzles">Get it on Google Play</a>
-          <a class="play gallery" href="https://appgallery.huawei.com/app/C118849817">Get it on AppGallery</a>
+          <a class="store" href="https://play.google.com/store/apps/details?id=com.mubarak.englisharabicpuzzles">
+            <img src="google-play-badge.png" alt="Get it on Google Play" onerror="this.parentNode.classList.add('no-badge')"><span class="play">Get it on Google Play</span>
+          </a>
+          <a class="store" href="https://appgallery.huawei.com/app/C118849817">
+            <img src="appgallery-badge.png" alt="Explore it on AppGallery" onerror="this.parentNode.classList.add('no-badge')"><span class="play gallery">Get it on AppGallery</span>
+          </a>
         </div>
       </div>
       <!-- A real mini crossword in the game's colours: ARABIC, ENGLISH and LEARN
