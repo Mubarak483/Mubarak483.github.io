@@ -47,8 +47,16 @@
 
     /* ── Hero: the name, one line about the game, and a real mini crossword ── */
     .hero {
+      position: relative;
       background: radial-gradient(circle at 80% 45%, var(--plum) 0, rgba(52, 25, 107, 0) 420px), var(--night);
       color: #f3ecff;
+    }
+    /* The whole dark banner is one big link: a tap anywhere on it opens Google
+       Play (AppGallery on Huawei phones, see the script at the bottom). The two
+       store badges sit on top of it (z-index 2), so each still opens its own store. */
+    .hero-link {
+      position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 1;
+      -webkit-tap-highlight-color: transparent;
     }
     .hero-inner {
       max-width: 1040px; margin: 0 auto; padding: 72px 28px 80px;
@@ -68,7 +76,7 @@
        badge picture is missing, its link shows as a plain button instead (the
        AppGallery one in Huawei red), so the page never shows a broken image. */
     .stores { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
-    .store { display: inline-block; line-height: 0; border-radius: 10px; }
+    .store { position: relative; z-index: 2; display: inline-block; line-height: 0; border-radius: 10px; }
     .store img { display: block; height: 58px; width: auto; }
     .store .play { display: none; box-sizing: border-box; height: 58px; padding: 0 24px; border-radius: 10px; align-items: center; line-height: 1; }
     .store.no-badge img { display: none; }
@@ -117,6 +125,9 @@
 </head>
 <body>
   <header class="hero">
+    <!-- A tap anywhere on this banner opens Google Play, or AppGallery on Huawei phones
+         (the badges open their own store). -->
+    <a class="hero-link" href="https://play.google.com/store/apps/details?id=com.mubarak.englisharabicpuzzles" tabindex="-1" aria-hidden="true"></a>
     <div class="hero-inner">
       <div>
         <h1>PuzzleClub</h1>
@@ -167,6 +178,14 @@
       if (nums[k]) { const n = document.createElement('span'); n.className = 'n'; n.textContent = nums[k]; d.appendChild(n); }
       g.appendChild(d);
     }));
+
+    // Huawei phones: most newer ones have no Google Play, so a tap on the banner
+    // opens AppGallery for them instead. Huawei's own browser, and apps like
+    // Facebook on a Huawei phone, say "Huawei" in the browser's ID text.
+    const heroLink = document.querySelector('.hero-link');
+    if (heroLink && /huawei|harmonyos/i.test(navigator.userAgent || '')) {
+      heroLink.href = 'https://appgallery.huawei.com/app/C118849817';
+    }
   </script>
 </body>
 </html>
