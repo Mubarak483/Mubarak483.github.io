@@ -1,12 +1,15 @@
 # app-ads.txt for PuzzleClub Bilingual Crossword (com.mubarak.englisharabicpuzzles)
-# Updated 28 September 2026
+# Updated 15 October 2026
 OWNERDOMAIN=mubarak483.github.io
 
-# The four ad networks in the app
+# The five ad networks in the app
 ironsrc.com, 676499, DIRECT
 unity.com, 142948642, DIRECT, 96cabb5fbdde37a7
 vungle.com, 6ab443385846cac3aaf44286, DIRECT, c107d686becd2d77
 inmobi.com, 49136b5175e44946acd0e21869478231, DIRECT, 83e75a7ae333ca9d
+# Meta Audience Network: business ID, then app ID
+facebook.com, 1650454003295987, RESELLER, c3e20eee3f780d68
+facebook.com, 1050439634623981, RESELLER, c3e20eee3f780d68
 
 # Authorized resellers: ironSource Ads
 media.net, 8CUH2L333, RESELLER
