@@ -10,7 +10,7 @@ inmobi.com, 49136b5175e44946acd0e21869478231, DIRECT, 83e75a7ae333ca9d
 # Meta Audience Network: business ID, app ID, then property ID
 facebook.com, 1650454003295987, RESELLER, c3e20eee3f780d68
 facebook.com, 1050439634623981, RESELLER, c3e20eee3f780d68
-facebook.com, 2895592005737371, RESELLER, c3e20eee3f780d68
+facebook.com, 28955920057373711, RESELLER, c3e20eee3f780d68
 
 # Authorized resellers: ironSource Ads
 media.net, 8CUH2L333, RESELLER
