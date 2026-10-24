@@ -18,6 +18,24 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="PuzzleClub: relaxing crossword puzzles, made by hand">
   <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Phones go straight to their store as soon as this page opens: AppGallery on
+       Huawei phones, Google Play on other Android phones. Link previews (WhatsApp,
+       Facebook and the rest) never run this, so the shared card stays the same.
+       Computers and iPhones stay on the page. To see the page itself on a phone,
+       add ?stay to the address: mubarak483.github.io/?stay -->
+  <script>
+    (function () {
+      var ua = navigator.userAgent || '';
+      if (/[?&]stay\b/.test(location.search)) return;
+      if (/bot|crawl|spider|preview|facebookexternalhit|whatsapp|telegram|slack|discord|twitter|linkedin|skype/i.test(ua)) return;
+      if (/huawei|harmonyos/i.test(ua)) {
+        location.replace('https://appgallery.huawei.com/app/C118849817');
+      } else if (/android/i.test(ua)) {
+        location.replace('https://play.google.com/store/apps/details?id=com.mubarak.englisharabicpuzzles');
+      }
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;600;800&display=swap" rel="stylesheet">
