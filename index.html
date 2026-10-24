@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PuzzleClub — Bilingual Crossword</title>
-  <meta name="description" content="PuzzleClub Bilingual Crossword: crossword puzzles with clues in English or Arabic, for Android.">
+  <title>PuzzleClub — Relaxing Crossword Puzzles</title>
+  <meta name="description" content="PuzzleClub: relaxing crossword puzzles, made by hand. Check as you go and learn new words. Free for Android.">
 
   <!-- Link previews: what Facebook, WhatsApp, X and others show when this
        page's link is shared (a big picture, the name and one line). -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="PuzzleClub">
   <meta property="og:url" content="https://mubarak483.github.io/">
-  <meta property="og:title" content="PuzzleClub Bilingual Crossword">
-  <meta property="og:description" content="Crosswords in English, with clues in English or Arabic. Learn as you play. Free on Google Play.">
-  <meta property="og:image" content="https://mubarak483.github.io/og-image-v2.png">
+  <meta property="og:title" content="PuzzleClub: Relaxing Crossword Puzzles">
+  <meta property="og:description" content="Relaxing crossword puzzles, made by hand. Check as you go and learn new words. Free on Google Play.">
+  <meta property="og:image" content="https://mubarak483.github.io/og-image-v4.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="PuzzleClub: a crossword with clues in English and Arabic">
+  <meta property="og:image:alt" content="PuzzleClub: relaxing crossword puzzles, made by hand">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -131,7 +131,7 @@
     <div class="hero-inner">
       <div>
         <h1>PuzzleClub</h1>
-        <p class="lede">Crossword puzzles with clues in English or Arabic.</p>
+        <p class="lede">Relaxing crossword puzzles, made by hand.</p>
         <div class="stores">
           <a class="store" href="https://play.google.com/store/apps/details?id=com.mubarak.englisharabicpuzzles">
             <img src="google-play-badge.png" alt="Get it on Google Play" onerror="this.parentNode.classList.add('no-badge')"><span class="play">Get it on Google Play</span>
@@ -141,8 +141,8 @@
           </a>
         </div>
       </div>
-      <!-- A real mini crossword in the game's colours: ARABIC, ENGLISH and LEARN
-           across; RING, IRIS and LAKE down. Decorative, so hidden from screen readers. -->
+      <!-- A real mini crossword in the game's colors: PUZZLE, LETTERS and RELAX
+           across; POOL, LIFE and TIDE down. Decorative, so hidden from screen readers. -->
       <div class="grid" id="grid" aria-hidden="true"></div>
     </div>
   </header>
@@ -150,24 +150,24 @@
   <main class="about">
     <h2>How it plays</h2>
     <ul class="points">
-      <li>Every answer is an English word. Read each clue in English, or switch it to Arabic with one tap.</li>
+      <li>Hand-made crosswords with clear, friendly clues, to solve at your own pace.</li>
       <li>Check your letters as you go: the correct ones turn green.</li>
       <li>Stuck on a word? Watch a short ad to reveal a letter. New puzzles are added regularly.</li>
     </ul>
   </main>
 
   <footer>
-    <p>PuzzleClub Bilingual Crossword is made by an independent Android developer.</p>
+    <p>PuzzleClub is made by an independent Android developer.</p>
     <p>Contact: <a href="mailto:beribor483@gmail.com">beribor483@gmail.com</a></p>
     <p><a href="https://sites.google.com/view/puzzleclub-privacy-policy">Privacy policy</a></p>
   </footer>
 
   <script>
-    const rows = ['.ARABIC', '..I..R.', '..N..I.', 'ENGLISH', '...A...', '...K...', '..LEARN'];
-    const nums = { '0,1': 1, '0,2': 2, '0,5': 3, '3,0': 4, '3,3': 5, '6,2': 6 };
-    const done = new Set(['0,1','0,2','0,3','0,4','0,5','0,6','3,0','3,1','3,2','3,3','3,4','3,5','3,6','6,2','6,3','6,4','6,5','6,6']);
+    const rows = ['PUZZLE.', 'O...I..', 'O...F..', 'LETTERS', '...I...', '...D...', '..RELAX'];
+    const nums = { '0,0': 1, '0,4': 2, '3,0': 3, '3,3': 4, '6,2': 5 };
+    const done = new Set(['0,0','0,1','0,2','0,3','0,4','0,5','3,0','3,1','3,2','3,3','3,4','3,5','3,6','6,2','6,3','6,4','6,5','6,6']);
     const path = new Set(['3,3', '4,3', '5,3', '6,3']);
-    const shown = new Set(['1,2', '4,3']);
+    const shown = new Set(['4,3']);
     const cursor = '5,3';
     const g = document.getElementById('grid');
     rows.forEach((row, r) => [...row].forEach((ch, c) => {
