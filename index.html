@@ -22,11 +22,20 @@
   <!-- Phones go straight to their store as soon as this page opens: AppGallery on
        Huawei phones, Google Play on other Android phones. Link previews (WhatsApp,
        Facebook and the rest) never run this, so the shared card stays the same.
-       Computers and iPhones stay on the page. To see the page itself on a phone,
-       add ?stay to the address: mubarak483.github.io/?stay -->
+       Computers, iPhones and iPads stay on the page. To see the page itself on a
+       phone, add ?stay to the address: mubarak483.github.io/?stay
+
+       iPhones and iPads (an iPad can call itself a Mac, so a touch screen gives it
+       away) are marked first, before anything is drawn: there the page hides the
+       Google Play and AppGallery badges and the banner's Google Play link, and
+       shows only the "Coming soon to the App Store" button (see .soon). Apple
+       doesn't want iPhone users sent to other stores. -->
   <script>
     (function () {
       var ua = navigator.userAgent || '';
+      if (/iphone|ipad|ipod/i.test(ua) || (/macintosh/i.test(ua) && navigator.maxTouchPoints > 1)) {
+        document.documentElement.classList.add('apple');
+      }
       if (/[?&]stay\b/.test(location.search)) return;
       if (/bot|crawl|spider|preview|facebookexternalhit|whatsapp|telegram|slack|discord|twitter|linkedin|skype/i.test(ua)) return;
       if (/huawei|harmonyos/i.test(ua)) {
@@ -101,6 +110,23 @@
     .store.no-badge .play { display: inline-flex; }
     .play.gallery { background: #cf0a2c; color: #fff; box-shadow: 0 3px 0 #9e0822; }
     .play.gallery:hover { background: #b8092a; }
+    /* The App Store version is on its way: a button-shaped note beside the
+       badges, the same height and shape, in the page's own lavender. It's
+       the only one on iPhones and iPads, which see neither Android badge and
+       no Google Play link on the banner. It isn't a link, and it sits above
+       the banner's link (z-index 2) so a tap on it opens nothing. No Apple
+       logo or Apple badge until the app is on the App Store: Apple only
+       allows those then, and the App Store badge will replace this note. */
+    .soon {
+      position: relative; z-index: 2; margin: 0;
+      display: inline-flex; flex-direction: column; justify-content: center;
+      height: 58px; padding: 0 18px; border-radius: 10px;
+      border: 2px solid var(--lavender); color: var(--lavender);
+      line-height: 1.05; cursor: default; -webkit-user-select: none; user-select: none;
+    }
+    .soon-small { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.9; }
+    .soon-big { font-size: 1.3rem; font-weight: 800; }
+    html.apple .store, html.apple .hero-link { display: none; }
 
     .grid { display: grid; grid-template-columns: repeat(7, 48px); grid-template-rows: repeat(7, 48px); gap: 6px; }
     .c {
@@ -157,6 +183,7 @@
           <a class="store" href="https://appgallery.huawei.com/app/C118849817">
             <img src="appgallery-badge.png" alt="Get it on AppGallery" onerror="this.parentNode.classList.add('no-badge')"><span class="play gallery">Get it on AppGallery</span>
           </a>
+          <p class="soon"><span class="soon-small">Coming soon to </span><span class="soon-big">the App Store</span></p>
         </div>
       </div>
       <!-- A real mini crossword in the game's colors: PUZZLE, LETTERS and RELAX
