@@ -1,5 +1,5 @@
 # app-ads.txt for Puzzle Club: Fun Crosswords (com.mubarak.englisharabicpuzzles)
-# Updated 30 October 2026
+# Updated 15 November 2026
 OWNERDOMAIN=mubarak483.github.io
 
 # The five ad networks in the app
@@ -842,6 +842,14 @@ rubiconproject.com, 17130, RESELLER, 0bfd66d529a55807
 
 # BIGO Ads: the app's BIGO account first, then BIGO's authorized resellers, exactly as BIGO lists them
 bigo.sg,nbyimsl6i8,DIRECT
+openx.com, 540543195, RESELLER, 6a698e2ec38604c6
+smartadserver.com, 6058, RESELLER, 060d053dcf45cbf3
+triplelift.com, 14867, RESELLER, 6c33edb13117fd86
+triplelift.com, 14923, RESELLER , 6c33edb13117fd86
+triplelift.com, 14919, RESELLER, 6c33edb13117fd86
+rubiconproject.com, 27945, RESELLER, 0bfd66d529a55807
+rubiconproject.com, 28945, RESELLER, 0bfd66d529a55807
+toponad.com, 16aec6880be2e7, RESELLER
 adingenious.com, 70392, RESELLER
 start.io, 115550145, RESELLER
 rubiconproject.com, 27026, RESELLER, 0bfd66d529a55807
