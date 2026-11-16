@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Puzzle Club Support</title>
+  <meta name="description" content="Help and contact for Puzzle Club: Fun Crosswords.">
+  <!-- The Support page named in App Store Connect (Support URL). Unlike the
+       home page, it never sends phones on to a store: anyone who opens it
+       stays here and can read it. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --night: #1f1140;      /* the app's deep violet */
+      --plum: #34196b;
+      --lavender: #caaafd;   /* an untouched square */
+      --green: #82dd8e;      /* a solved square */
+      --green-deep: #52af58;
+      --violet: #8a2be2;     /* the highlighted word */
+      --paper: #fbf8ff;
+      --card: #ffffff;
+      --line: #e6dcfb;
+      --ink: #2a1a4d;
+      --ink-soft: #5b4b7d;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body {
+      font-family: 'Baloo Bhaijaan 2', 'Segoe UI', Roboto, Arial, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.55;
+    }
+    a { color: var(--violet); font-weight: 600; }
+    a:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; border-radius: 8px; }
+
+    header {
+      background: radial-gradient(circle at 85% 30%, var(--plum) 0, rgba(52, 25, 107, 0) 380px), var(--night);
+      color: #f3ecff;
+    }
+    .head-inner { max-width: 760px; margin: 0 auto; padding: 44px 24px 48px; }
+    .home { color: var(--lavender); text-decoration: none; font-weight: 700; font-size: 1.05rem; }
+    .home:hover { text-decoration: underline; }
+    h1 { font-weight: 800; font-size: clamp(2.4rem, 7vw, 3.4rem); line-height: 1; letter-spacing: -0.5px; margin: 14px 0 10px; }
+    .lede { font-size: 1.2rem; font-weight: 600; color: var(--lavender); margin: 0; max-width: 34ch; line-height: 1.35; }
+
+    main { max-width: 760px; margin: 0 auto; padding: 32px 24px 8px; }
+    section {
+      background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+      padding: 22px 24px; margin: 0 0 20px; box-shadow: 0 2px 10px rgba(60, 20, 140, 0.05);
+    }
+    h2 { font-size: 1.45rem; font-weight: 800; margin: 0 0 10px; }
+    h3 { font-size: 1.12rem; font-weight: 800; margin: 18px 0 2px; }
+    h3:first-of-type { margin-top: 4px; }
+    p { margin: 6px 0; font-size: 1.08rem; }
+    ul { margin: 8px 0; padding-left: 1.2em; font-size: 1.08rem; }
+    li { margin: 3px 0; }
+
+    .mail {
+      display: inline-block; margin: 12px 0 8px; text-decoration: none;
+      background: var(--green); color: #14532d; font-weight: 800; font-size: 1.1rem;
+      padding: 12px 22px; border-radius: 14px; box-shadow: 0 3px 0 var(--green-deep);
+    }
+    .mail:hover { background: #95e6a0; }
+    .address { font-weight: 700; word-break: break-all; }
+    .path { font-weight: 700; color: var(--ink); }
+
+    footer { max-width: 760px; margin: 0 auto; padding: 18px 24px 56px; color: var(--ink-soft); font-size: 1.02rem; }
+    footer p { margin: 4px 0; font-size: 1.02rem; }
+
+    @media (max-width: 480px) {
+      .head-inner { padding: 34px 18px 38px; }
+      main { padding: 24px 14px 4px; }
+      section { padding: 18px 18px; border-radius: 16px; }
+      footer { padding-left: 18px; padding-right: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="head-inner">
+      <a class="home" href="./">← Puzzle Club</a>
+      <h1>Support</h1>
+      <p class="lede">Help with Puzzle Club: Fun Crosswords.</p>
+    </div>
+  </header>
+
+  <main>
+    <section id="contact">
+      <h2>Contact me</h2>
+      <p>Questions, problems or ideas? Send me an email. I read every message and reply as soon as I can.</p>
+      <a class="mail" href="mailto:beribor483@gmail.com?subject=Puzzle%20Club%20support">Email support</a>
+      <p>Email: <a class="address" href="mailto:beribor483@gmail.com?subject=Puzzle%20Club%20support">beribor483@gmail.com</a></p>
+      <p>If something isn't working, these help me fix it faster:</p>
+      <ul>
+        <li>the phone you use (for example, iPhone 15)</li>
+        <li>what you were doing, and what happened</li>
+        <li>a screenshot, if you can</li>
+      </ul>
+    </section>
+
+    <section id="faq">
+      <h2>Common questions</h2>
+
+      <h3>I'm stuck on a word. How do I get a letter?</h3>
+      <p>Tap the hint button above the keyboard. You can watch a short video to reveal a letter in the word you're on.</p>
+
+      <h3>How do I check my answers?</h3>
+      <p>Tap <span class="path">Check</span>. Correct letters turn green, and you can keep going until the whole puzzle is solved.</p>
+
+      <h3>Where is my progress saved?</h3>
+      <p>On your phone. Your progress and settings stay on the device, so deleting the app also deletes them.</p>
+
+      <h3>How do I choose whether ads can fit my interests?</h3>
+      <p>On iPhone, open your iPhone's <span class="path">Settings → Privacy &amp; Security → Tracking</span> and switch Puzzle Club on or off. On other phones, open the app's <span class="path">Settings → Ads and privacy</span>.</p>
+
+      <h3>How do I delete my data?</h3>
+      <p>Everything the app saves stays on your phone, and deleting the app removes it. For information that advertising partners hold, see the privacy policy below, or email me and I'll help.</p>
+    </section>
+
+    <section id="privacy">
+      <h2>Privacy</h2>
+      <p>Read the <a href="https://sites.google.com/view/puzzleclub-privacy-policy">privacy policy</a> to see what data the app and its advertising partners use, and why.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Puzzle Club is made by an independent developer.</p>
+    <p><a href="./">Back to the Puzzle Club home page</a></p>
+  </footer>
+</body>
+</html>
